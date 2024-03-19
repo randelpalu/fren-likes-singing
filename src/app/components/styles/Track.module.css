@@ -1,0 +1,16 @@
+.track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Equivalent to py-2 px-4 */
+  transition: all 0.3s ease-in-out; /* Equivalent to ease-in-out duration-300 */
+  border-bottom: 1px solid #e5e7eb; /* Equivalent to border-b */
+}
+
+.track:hover {
+  background-color: #edf2f7; /* Equivalent to hover:bg-slate-200 */
+}
+
+.track:first-child {
+  border-top: 1px solid #e5e7eb; /* Add your desired border style here */
+}
