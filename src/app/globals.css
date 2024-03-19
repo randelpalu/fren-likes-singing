@@ -5,4 +5,33 @@
 body {
   background-color: #1E293B;
   color: #1E293B;
+
+  .main-container {
+    position: relative;
+    color: #1E293B;
+  }
+
+  .main-container::before {
+    content: '';
+    position: absolute;
+    top:-2px;
+    left:-2px;
+    right:-2px;
+    bottom:-2px;
+    background: #E2E8F0;
+    z-index: -1;
+    border-radius: 0.5rem;
+  }
+
+  .main-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #E2E8F0;
+    z-index: -2;
+    filter: blur(20px);
+  }
 }
