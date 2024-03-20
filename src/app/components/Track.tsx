@@ -1,8 +1,8 @@
 import Image from "next/image";
-import type { Track } from "../types/global.t";
+import type { TrackType } from "../types/global.t";
 import styles from './styles/Track.module.css';
 
-export default function Track({icon, ...track}: Track & { icon: string }) {
+export default function Track({icon, ...track}: TrackType & { icon: string }) {
   return(
     <li className={styles.track}>
       <div className="flex items-center">

@@ -1,43 +1,8 @@
+import { useTrackContext } from "../contexts/TrackContext";
 import Track from "./Track";
 
 export default function Album() {
-  const tracks = [
-    {
-      id: 1,
-      artist: 'Allar Mets',
-      album: 'Metsalood',
-      title: 'Esimene',
-      duration: '0:10'
-    },
-    {
-      id: 2,
-      artist: 'Allar Mets',
-      album: 'Metsalood',
-      title: 'Teine',
-      duration: '0:10'
-    },
-    {
-      id: 3,
-      artist: 'Allar Mets',
-      album: 'Metsalood',
-      title: 'Kolmas',
-      duration: '0:10'
-    },
-    {
-      id: 4,
-      artist: 'Allar Mets',
-      album: 'Metsalood',
-      title: 'Neljas',
-      duration: '0:10'
-    },
-    {
-      id: 5,
-      artist: 'Allar Mets',
-      album: 'Metsalood',
-      title: 'Viies',
-      duration: '0:10'
-    },
-  ]
+  const { tracks } = useTrackContext()
 
   return(
       <ul className="py-4">
