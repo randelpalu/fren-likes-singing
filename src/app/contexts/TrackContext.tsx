@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useState, useRef } from "react";
 import type { TrackContextType } from "../types/global.t";
 import type { TrackType } from "../types/global.t";
 
@@ -10,6 +10,7 @@ const TrackContext = createContext<TrackContextType>({
   prevTrack: () => {},
   nextTrack: () => {},
   tracks: [],
+  audioRef: { current: null }
 });
 
 export const TrackProvider = ({
@@ -19,14 +20,17 @@ export const TrackProvider = ({
 }>) => {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement|null>(null)
 
   const playTrack = (index: number) => {
     setCurrentTrackIndex(index)
     setIsPlaying(true)
+    audioRef.current?.play()
   }
 
   const stopTrack = () => {
     setIsPlaying(false)
+    audioRef.current?.pause()
   }
 
   const prevTrack = () => {
@@ -180,7 +184,7 @@ export const TrackProvider = ({
   ]
 
   return (
-    <TrackContext.Provider value={{currentTrackIndex, isPlaying, playTrack, stopTrack, prevTrack, nextTrack, tracks}}>
+    <TrackContext.Provider value={{currentTrackIndex, isPlaying, playTrack, stopTrack, prevTrack, nextTrack, tracks, audioRef}}>
       {children}
     </TrackContext.Provider>
   )

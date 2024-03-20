@@ -15,4 +15,5 @@ export type TrackContextType = {
   prevTrack: () => void
   nextTrack: () => void
   tracks: TrackType[]
+  audioRef: React.MutableRefObject<HTMLAudioElement|null>
 }

@@ -6,8 +6,8 @@ export default function Album() {
 
   return(
       <ul className="py-4">
-        {tracks.map((track) => (
-          <Track key={track.id} {...track} icon={'/images/rounded.png'}/>
+        {tracks.map((track, index) => (
+          <Track key={track.id} {...track} icon={'/images/rounded.png'} index={index}/>
         ))}
       </ul>
   )

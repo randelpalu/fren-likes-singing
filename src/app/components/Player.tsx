@@ -2,8 +2,7 @@ import { useRef, useEffect } from "react"
 import { useTrackContext } from "../contexts/TrackContext";
 
 export default function Player() {
-  const { currentTrackIndex, isPlaying, playTrack, stopTrack, prevTrack, nextTrack, tracks } = useTrackContext();
-  const audioRef = useRef<HTMLAudioElement>(null)
+  const { currentTrackIndex, isPlaying, playTrack, stopTrack, prevTrack, nextTrack, tracks, audioRef } = useTrackContext();
 
   useEffect(() => {
     const currentAudioRef = audioRef.current
@@ -19,7 +18,7 @@ export default function Player() {
 
   const handleNewSongLoaded = () => {
     if(isPlaying) {
-      audioRef.current?.play()
+      playTrack(currentTrackIndex)
     }
   }
 
@@ -27,30 +26,24 @@ export default function Player() {
     nextTrack()
   }
 
-  const handlePrev = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault()
-
-    prevTrack()
-    audioRef.current?.play()
-  }
-
   const handleTogglePlay = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
 
     if(!isPlaying) {
       playTrack(currentTrackIndex)
-      audioRef.current?.play()
     } else {
       stopTrack()
-      audioRef.current?.pause()
     }
+  }
+
+  const handlePrev = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault()
+    prevTrack()
   }
 
   const handleNext = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
-
     nextTrack()
-    audioRef.current?.play()
   }
 
   return (
