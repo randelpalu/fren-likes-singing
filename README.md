@@ -2,6 +2,9 @@
 
   Nextjs audio-player app
 
+  (friend sings all the time when starting a phone call)
+  https://fren-likes-singing.vercel.app/
+
 
 
 ## Running the app
